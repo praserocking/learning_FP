@@ -22,3 +22,18 @@ def f(arr:List[Int]):List[Int] = arr.indices.collect{case x if x%2!=0 => arr(x)}
  
  //N times Hello world
  def f(n: Int) = for(i <- 1 to n)println("Hello World") 
+ 
+ //Pascal's Triangle
+ object Solution {
+    def main(args: Array[String]) {
+            def fact(x:Int) : Int = if(x==0) 1 else if(x==1) 1 else x*fact(x-1) 
+            val n = readLine().toInt
+            def calc(q:Int, r:Int) : Int = (fact(q)/(fact(r)*fact(q-r)))
+            
+                (1 to n).zipWithIndex
+                        .map{case(v,i) => (1 to v).zipWithIndex
+                                                  .map{case(vv,ii) => calc(i,ii)}
+                                                  .mkString(" ")}
+                        .foreach{println(_)}
+    }
+}
