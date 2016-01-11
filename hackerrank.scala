@@ -37,3 +37,12 @@ def f(arr:List[Int]):List[Int] = arr.indices.collect{case x if x%2!=0 => arr(x)}
                         .foreach{println(_)}
     }
 }
+
+//String-o-permute
+
+object Solution {
+    def main(args: Array[String]) {
+        val t = readLine().toInt
+        for(i <- 1 to t) println(readLine().grouped(2).map(_.reverse).mkString(""))
+    }
+}
